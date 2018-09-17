@@ -38,7 +38,7 @@ public class MyTypeFiler implements TypeFilter {
 
         String className = classMetadata.getClassName();
         System.out.println("--->"+className);
-        if (className.equalsIgnoreCase("com.nemo.sj.spring.controller.BookController"))return true;
+//        if (className.equalsIgnoreCase("com.nemo.sj.spring.controller.BookController"))return true;
 
         return false;
     }

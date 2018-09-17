@@ -1,7 +1,9 @@
 package com.nemo.sj.spring.config;
 
+import com.nemo.sj.spring.bean.Color;
 import com.nemo.sj.spring.bean.Persion;
 import com.nemo.sj.spring.condition.Linuxcondition;
+import com.nemo.sj.spring.condition.MyImprotSelector;
 import com.nemo.sj.spring.condition.Windowscondition;
 import org.springframework.context.annotation.*;
 
@@ -10,8 +12,9 @@ import org.springframework.context.annotation.*;
  * 2018/9/17  14:04
  */
 // 满足当前条件，这个类中配置的所有bean 注册才能生效
-@Conditional({Linuxcondition.class})
+//@Conditional({Linuxcondition.class})
 @Configuration
+@Import({Color.class,MyImprotSelector.class})
 public class MainConfig2 {
 
     /**
@@ -75,4 +78,16 @@ public class MainConfig2 {
         return new Persion("asd");
 
     }
+    /**
+     *
+     * 给容器中注册组件
+     * 1.扫描包 和组件注解
+     * 2. @Bean
+     * 3.@Import{快速给容器中导入一个组件}
+     *      1@Import(要导入的类型)
+     *      2ImportSelector:返回需要导入的组件的全类名数组
+     *
+     */
+
+
 }

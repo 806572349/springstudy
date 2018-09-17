@@ -15,6 +15,23 @@ import java.util.Map;
  */
 
 public class IOCTest {
+    @Test
+    public  void testImprot(){
+
+        printBean();
+    }
+
+
+    private void  printBean(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+
+
+
+    }
 
     @SuppressWarnings("resource")
     @Test
