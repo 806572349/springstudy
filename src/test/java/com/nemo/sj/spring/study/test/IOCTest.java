@@ -28,7 +28,12 @@ public class IOCTest {
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
         }
-
+        //工厂Bean  获取的是调用getobejce 创建的对象
+        Object colorFactoryBean = applicationContext.getBean("colorFactoryBean");
+        System.out.println(colorFactoryBean.getClass());
+        //
+        Object colorFactoryBean2 = applicationContext.getBean("&colorFactoryBean");
+        System.out.println(colorFactoryBean2.getClass());
 
 
     }

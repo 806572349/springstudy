@@ -1,6 +1,7 @@
 package com.nemo.sj.spring.config;
 
 import com.nemo.sj.spring.bean.Color;
+import com.nemo.sj.spring.bean.ColorFactoryBean;
 import com.nemo.sj.spring.bean.Persion;
 import com.nemo.sj.spring.condition.Linuxcondition;
 import com.nemo.sj.spring.condition.MyImportBeanDefinitionRegistrar;
@@ -89,8 +90,14 @@ public class MainConfig2 {
      *      2ImportSelector:返回需要导入的组件的全类名数组
      *      3 ImportBeanDefinitionRegistrar  手动注册bean
      * 4. 使用Spring 提供的FactortyBean （工厂Bean）
+     *      1. 默认获取到的是工厂bean 调用getobject创建的对象
+     *      2.要获取工厂bean本身，需要加上&+名称 就可以获取工厂bean本身  BeanFactory有介绍
      *
      */
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return  new ColorFactoryBean();
+    }
 
 
 }
