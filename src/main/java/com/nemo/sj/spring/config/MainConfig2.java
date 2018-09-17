@@ -1,15 +1,16 @@
 package com.nemo.sj.spring.config;
 
 import com.nemo.sj.spring.bean.Persion;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
+import com.nemo.sj.spring.condition.Linuxcondition;
+import com.nemo.sj.spring.condition.Windowscondition;
+import org.springframework.context.annotation.*;
 
 /**
  * create by Nemo
  * 2018/9/17  14:04
  */
+// 满足当前条件，这个类中配置的所有bean 注册才能生效
+@Conditional({Linuxcondition.class})
 @Configuration
 public class MainConfig2 {
 
@@ -50,4 +51,28 @@ public class MainConfig2 {
      *     懒加载： 容器启动不创建对象，第一次使用（获取）bean 创建对象，并初始化
      *
      *     */
+
+
+    /**
+     * @Conditional  按照一定的条件进行判断，满足条件给容器中注册bean
+     *
+     *  如果时windows 给容器中注册（“bill”）
+     *  如果时linux 给容器中注册（“linus”）
+     *
+     */
+    @Conditional({Windowscondition.class})
+    @Bean("bill")
+    public  Persion person3(){
+        System.out.println("bill....");
+        return new Persion("4234");
+
+    }
+
+    @Conditional({Linuxcondition.class})
+    @Bean("linus")
+    public  Persion person4(){
+        System.out.println("linus....");
+        return new Persion("asd");
+
+    }
 }
