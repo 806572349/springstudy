@@ -3,6 +3,7 @@ package com.nemo.sj.spring.config;
 import com.nemo.sj.spring.bean.Persion;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 /**
@@ -34,10 +35,19 @@ public class MainConfig2 {
      * session  同一个session 创建一个实例
      *
      */
-    @Scope("prototype")//Scope注解调整作用域
+//    @Scope("prototype")//Scope注解调整作用域
+    @Lazy
     @Bean("person2")
     public Persion persion22(){
         System.out.println("给容器中添加persion22....");
         return new Persion("1234");
     }
+
+
+    /**
+     *   单实例bean  默认在容器启动的时候创建对象
+     *
+     *     懒加载： 容器启动不创建对象，第一次使用（获取）bean 创建对象，并初始化
+     *
+     *     */
 }

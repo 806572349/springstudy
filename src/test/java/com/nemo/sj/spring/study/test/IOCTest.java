@@ -35,7 +35,7 @@ public class IOCTest {
             System.out.println(beanDefinitionName);
         }
         Object person2 = applicationContext.getBean("person2");
-        Object person3 = applicationContext.getBean("person2");
+//        Object person3 = applicationContext.getBean("person2");
 
 
     }
