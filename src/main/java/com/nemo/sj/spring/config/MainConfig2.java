@@ -3,6 +3,7 @@ package com.nemo.sj.spring.config;
 import com.nemo.sj.spring.bean.Color;
 import com.nemo.sj.spring.bean.Persion;
 import com.nemo.sj.spring.condition.Linuxcondition;
+import com.nemo.sj.spring.condition.MyImportBeanDefinitionRegistrar;
 import com.nemo.sj.spring.condition.MyImprotSelector;
 import com.nemo.sj.spring.condition.Windowscondition;
 import org.springframework.context.annotation.*;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.*;
 // 满足当前条件，这个类中配置的所有bean 注册才能生效
 //@Conditional({Linuxcondition.class})
 @Configuration
-@Import({Color.class,MyImprotSelector.class})
+@Import({Color.class,MyImprotSelector.class,MyImportBeanDefinitionRegistrar.class})
 public class MainConfig2 {
 
     /**
@@ -86,6 +87,8 @@ public class MainConfig2 {
      * 3.@Import{快速给容器中导入一个组件}
      *      1@Import(要导入的类型)
      *      2ImportSelector:返回需要导入的组件的全类名数组
+     *      3 ImportBeanDefinitionRegistrar  手动注册bean
+     * 4. 使用Spring 提供的FactortyBean （工厂Bean）
      *
      */
 
