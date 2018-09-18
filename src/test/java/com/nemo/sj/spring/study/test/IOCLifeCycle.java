@@ -1,5 +1,6 @@
 package com.nemo.sj.spring.study.test;
 
+import com.nemo.sj.spring.bean.MyBeanPostProcessor;
 import com.nemo.sj.spring.config.MainConfiLifeCycle;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -14,7 +15,7 @@ public class IOCLifeCycle {
 
     @Test
     public  void test(){
-        AnnotationConfigApplicationContext configApplicationContext=new AnnotationConfigApplicationContext(MainConfiLifeCycle.class);
+        AnnotationConfigApplicationContext configApplicationContext=new AnnotationConfigApplicationContext(MainConfiLifeCycle.class,MyBeanPostProcessor.class);
         System.out.println("创建完成");
 
         configApplicationContext.close();

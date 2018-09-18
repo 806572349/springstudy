@@ -30,6 +30,14 @@ import org.springframework.context.annotation.Configuration;
  * @PostConstruct 在bean 创建完成并且属性赋值完成，来执行初始化方法
  * @PreDstroy 在容器销毁bean 之前通知我们进行清理工作
  *
+ * 4 @BeanPostProcessor  bean的后置处理器：
+ * 在bean初始化前后进行一些工作
+ *
+ * postProcessBeforeInitialization :在初始化之前
+ *
+ * postProcessAfterInitialization : 在初始化之后
+ *
+ *
  *
  * create by Nemo
  * 2018/9/18  13:38
