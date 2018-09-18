@@ -50,7 +50,8 @@ import org.springframework.context.annotation.Configuration;
  * postProcessAfterInitialization : 在初始化之后
  *
  *
- *
+ * spring底层对BeanPostProcessor的使用
+ *      bean 赋值，注入其他组件，@Authowired  生命周期注解功能，
  *
  * create by Nemo
  * 2018/9/18  13:38
