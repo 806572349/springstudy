@@ -7,6 +7,18 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  *
+ *BeanPostProcessor原理
+ * 遍历得到容器中所有的BeanPostProcessor，挨个执行 BeforeInitialization，
+ * 一旦返回null 跳出for 循环，不会执行后面的BeanPostProcessor  applyBeanPostProcessorsBeforeInitialization
+ * populateBean(beanName, mbd, instanceWrapper)
+ * initializeBean
+ * {
+ * applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
+ * invokeInitMethods(beanName, wrappedBean, mbd);//自定义初始化方法
+ *
+ * applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
+ *}
+ *
  * bean 的生命周期：
  *          bean创建---初始化--- 销毁过程
  *          容器管理bean 的生命周期
@@ -36,6 +48,7 @@ import org.springframework.context.annotation.Configuration;
  * postProcessBeforeInitialization :在初始化之前
  *
  * postProcessAfterInitialization : 在初始化之后
+ *
  *
  *
  *
